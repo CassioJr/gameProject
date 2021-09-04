@@ -9,20 +9,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CharCreationController">
    <children>
       <ImageView fitHeight="612.0" fitWidth="1208.0" layoutX="-7.0" layoutY="-8.0">
          <image>
             <Image url="@../../Backgrounds/Background_CriacaoPersonagem.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="551.0" fitWidth="292.0" layoutX="855.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="classeImagem" fitHeight="551.0" fitWidth="292.0" layoutX="855.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
       <TextField layoutX="463.0" layoutY="113.0" prefHeight="40.0" prefWidth="240.0" />
       <Text layoutX="509.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do personagem:" />
-      <MenuButton layoutX="460.0" layoutY="232.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="240.0">
+      <MenuButton fx:id="escolherClasse" layoutX="460.0" layoutY="232.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="240.0">
         <items>
-          <MenuItem mnemonicParsing="false" text="Mago" />
+          <MenuItem fx:id="mago" mnemonicParsing="false" onAction="#mago" text="Mago" />
           <MenuItem mnemonicParsing="false" text="Arqueiro" />
             <MenuItem mnemonicParsing="false" text="Guerreiro" />
         </items>

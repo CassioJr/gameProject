@@ -8,16 +8,38 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	private static Stage stage;
+	private static Scene main;
+	private static Scene NovoJogo;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("TelaMenu.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
+			stage = primaryStage;
+			stage.setTitle("Aqui vai o nome do jogo kkkkkkkk");
+			stage.setResizable(false);
+			//Esse codigo serve pra bota icone no aplicativo 
+			//stage.getIcons().add(new Image("file:imagens//dk.jpg"));
+						
+			AnchorPane fxmlmenu = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaMenu.fxml"));
+			main = new Scene(fxmlmenu);
+		
+			AnchorPane fxmlCharCreation = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaCriacaoPersonagem.fxml"));
+			NovoJogo = new Scene(fxmlCharCreation);
+			
+			
+			stage.setScene(main);
+			stage.show();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
+		}
+	}
+	public static void changeScene(String scr) {
+		switch (scr) {
+		case "novoJogo":
+			stage.setScene(NovoJogo);
+			break;	
 		}
 	}
 	
