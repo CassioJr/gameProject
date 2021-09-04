@@ -1,7 +1,9 @@
 # GameProject
  
 Titulo Jogo: Não tem 
+
 Linguagem a ser desenvolvida: Java 
+
 Ferramentas para apoio: Trello(Talvez), Figma, Scene Builder
 
 Prototipo do figma:
