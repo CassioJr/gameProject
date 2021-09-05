@@ -14,10 +14,12 @@ public class Operacoes {
 	
     public void carregaInformacoes(Label nome, Label level, Label coins) {
     	for(Player jogador : personagem) {
-    	//nome.setText(jogador.getNome());
+    		if(jogador !=null) {
+    	nome.setText(jogador.getNome());
     	level.setText(String.valueOf(jogador.getLevel()));
     	coins.setText(String.valueOf(jogador.getDinheiro()));
-    	}
+    		}
+    		}
     	}
     
     public void SalvarArquivo() {}

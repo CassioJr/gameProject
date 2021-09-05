@@ -1,15 +1,22 @@
 package application;
 
 import java.io.File;
+import java.io.IOException;
 
 import auxiliares.MetodosAuxiliares;
 import classesEntidades.Player;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class CharCreationController {
 	@FXML
@@ -23,7 +30,8 @@ public class CharCreationController {
 	
 	@FXML
 	private MenuItem mago,arqueiro,guerreiro;
-	
+    private Stage primaryStage;
+    
 	public void mago() {
 		escolherClasse.setText(mago.getText());
 	    File file = new File("./Imagens_Classes/Mago.png");
@@ -58,22 +66,30 @@ public class CharCreationController {
 		return false;
 	}
 	
-	public void iniciar() {
+	public void iniciar(ActionEvent event) throws IOException {
 		if (validacaoCampos()==false) {
 			String nome = campoNome.getText();
 			Player jogador = new Player(nome, escolherClasse.getText(), 100, 100, 20,0);
 			Main.operacoes().addChar(jogador);
-			Main.changeScene("espera");
+			AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));
+			Scene Espera = new Scene(fxmlEspera);
+			primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			primaryStage.setScene(Espera);
+			primaryStage.show();
 		}
 
 		
 	}
 	
-	public void voltar() {
+	public void voltar(ActionEvent event) throws IOException {
 		campoNome.setText("");
 		escolherClasse.setText("");
 		//Main.instancia().MusicBackground("main_title");
-		Main.changeScene("Menu");
+		AnchorPane fxmlmenu = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaMenu.fxml"));
+		Scene main = new Scene(fxmlmenu);
+		primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		primaryStage.setScene(main);
+		primaryStage.show();
 	}
 
 }
