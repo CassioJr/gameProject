@@ -1,5 +1,6 @@
 package application;
 
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -21,12 +22,11 @@ public class Main extends Application {
 			//Esse codigo serve pra bota icone no aplicativo 
 			//stage.getIcons().add(new Image("file:imagens//dk.jpg"));
 						
-			AnchorPane fxmlmenu = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaMenu.fxml"));
+			AnchorPane fxmlmenu = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaMenu.fxml"));
 			main = new Scene(fxmlmenu);
 		
-			AnchorPane fxmlCharCreation = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaCriacaoPersonagem.fxml"));
+			AnchorPane fxmlCharCreation = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaCriacaoPersonagem.fxml"));
 			NovoJogo = new Scene(fxmlCharCreation);
-			
 			
 			stage.setScene(main);
 			stage.show();
@@ -37,6 +37,9 @@ public class Main extends Application {
 	}
 	public static void changeScene(String scr) {
 		switch (scr) {
+		case "Menu":
+			stage.setScene(main);
+			break;
 		case "novoJogo":
 			stage.setScene(NovoJogo);
 			break;	
