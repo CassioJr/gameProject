@@ -14,7 +14,7 @@
             <Image url="@../../Backgrounds/Background_TelaMenu.png" />
          </image>
       </ImageView>
-      <Button layoutX="403.0" layoutY="206.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="395.0" style="-fx-background-radius: 15; -fx-background-color: #96EDF9;" text="Continuar" visible="false">
+      <Button fx:id="continuar" layoutX="403.0" layoutY="206.0" mnemonicParsing="false" onAction="#continueGame" prefHeight="94.0" prefWidth="395.0" style="-fx-background-radius: 15; -fx-background-color: #96EDF9;" text="Continuar" visible="false">
          <font>
             <Font name="Sitka Small" size="24.0" />
          </font></Button>
