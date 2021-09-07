@@ -17,8 +17,6 @@ import javafx.stage.Stage;
 
 public class MenuController implements Initializable {
 	@FXML
-	private AnchorPane telaMenu;
-	@FXML
 	private Button continuar;
 	private Stage primaryStage;
 

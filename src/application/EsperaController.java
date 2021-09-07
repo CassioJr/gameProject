@@ -20,7 +20,9 @@ public class EsperaController implements Initializable {
 
 	@FXML
 	private Label nivelPlayer;
-
+	@FXML 
+	private AnchorPane telaSobreHistoria;
+	
 	@FXML
 	private Label ouroPlayer;
 	private Stage primaryStage;
@@ -36,12 +38,16 @@ public class EsperaController implements Initializable {
 		primaryStage.setScene(main);
 	}
 
-	public void btnSobreHistoria(ActionEvent event) throws IOException {
-		AnchorPane fxmlsobreHistoria = (AnchorPane) FXMLLoader
-				.load(getClass().getResource("/telas/TelaSobreHistoria.fxml"));
-		Scene historia = new Scene(fxmlsobreHistoria);
-		primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setScene(historia);
+	public void btnSobreHistoria(){
+		if(!telaSobreHistoria.isVisible()) {
+			telaSobreHistoria.setVisible(true);
+		}else {
+			telaSobreHistoria.setVisible(false);
+		}
+	}
+	
+	public void btnreino() {
+		System.out.println("Olá Mundo");
 	}
 
 	@Override

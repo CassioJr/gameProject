@@ -60,11 +60,30 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="527.0" fitWidth="1156.0" layoutX="218.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="559.0" fitWidth="745.0" layoutX="214.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Backgrounds/MapaExemplo.jpg" />
+            <Image url="@../../Backgrounds/MapaMundo.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="690.0" layoutY="221.0" mnemonicParsing="false" onAction="#Informacoes" prefHeight="66.0" prefWidth="85.0" style="-fx-opacity: 100;" textFill="WHITE" />
+      <Button layoutX="368.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnreino" opacity="0.13" prefHeight="59.0" prefWidth="97.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
+      <AnchorPane fx:id="telaSobreHistoria" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" visible="false">
+         <children>
+            <ImageView fitHeight="700.0" fitWidth="1214.0" layoutX="-8.0">
+               <image>
+                  <Image url="@../../Backgrounds/Background_SobreHistoria.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" onAction="#btnSobreHistoria" opacity="0.04" prefHeight="707.0" prefWidth="1206.0">
+               <font>
+                  <Font name="Sylfaen" size="14.0" />
+               </font>
+            </Button>
+            <Text fill="WHITE" layoutX="450.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Onde os fracos perecem">
+               <font>
+                  <Font name="Ink Free" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
