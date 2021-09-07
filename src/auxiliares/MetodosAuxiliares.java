@@ -40,7 +40,7 @@ public class MetodosAuxiliares {
 	}
 
 	public boolean existeArquivoSave() {
-		File arquivo = new File(".\\savedata\\save.bin");
+		File arquivo = new File("./savedata/save.bin");
 		if (arquivo.exists()) {
 			return true;
 		}

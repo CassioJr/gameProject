@@ -1,4 +1,10 @@
-/application/
-/auxiliares/
+/Backgrounds/
+/Imagens_Classes/
+/Itens/
+/Monsters/
+/Musicas/
+/savedata/
 /telas/
-/classesEntidades/
+/application/
+/HUD_icons/
+/auxiliares/

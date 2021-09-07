@@ -45,7 +45,7 @@ public class MenuController implements Initializable {
 	}
 
 	public boolean existeArquivo() {
-		File arquivo = new File(".\\savedata\\save.bin");
+		File arquivo = new File("./savedata/save.bin");
 		if (arquivo.exists()) {
 			continuar.setVisible(true);
 			return true;

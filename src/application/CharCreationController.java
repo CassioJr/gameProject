@@ -34,21 +34,21 @@ public class CharCreationController {
 
 	public void mago() {
 		escolherClasse.setText(mago.getText());
-		File file = new File("./Imagens_Classes/Mago.png");
+		File file = new File("./resources/Imagens_Classes/Mago.png");
 		Image image = new Image(file.toURI().toString());
 		classeImagem.setImage(image);
 	}
 
 	public void arqueiro() {
 		escolherClasse.setText(arqueiro.getText());
-		File file = new File("./Imagens_Classes/Arqueiro.png");
+		File file = new File("./resources/Imagens_Classes/Arqueiro.png");
 		Image image = new Image(file.toURI().toString());
 		classeImagem.setImage(image);
 	}
 
 	public void guerreiro() {
 		escolherClasse.setText(guerreiro.getText());
-		File file = new File("./Imagens_Classes/Guerreiro.png");
+		File file = new File("./resources/Imagens_Classes/Guerreiro.png");
 		Image image = new Image(file.toURI().toString());
 		classeImagem.setImage(image);
 	}
@@ -69,7 +69,7 @@ public class CharCreationController {
 		if (validacaoCampos() == false) {
 			if (Main.instancia().existeArquivoSave() == true) {
 				if (Main.instancia().MSGEscolha("Já existe um save, deseja criar um novo?") == true) {
-					Player jogador = new Player(campoNome.getText(), escolherClasse.getText(), 100, 100, 20, 0);
+					Player jogador = new Player(campoNome.getText(), escolherClasse.getText(), 100, 100, 1, 0);
 					Main.operacoes().addChar(jogador);
 					if(Main.operacoes().salvarArquivo() == true) {
 					AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));

@@ -37,7 +37,7 @@ public class Operacoes {
 	public boolean salvarArquivo() {
 		try {
 			ObjectOutputStream output;
-			output = new ObjectOutputStream(new FileOutputStream(new File(".\\savedata\\save.bin")));
+			output = new ObjectOutputStream(new FileOutputStream(new File("./savedata/save.bin")));
 			output.writeObject(personagem);
 			output.close();
 			return true;
@@ -50,7 +50,7 @@ public class Operacoes {
 	public boolean lerArquivo() {
 		try {
 			ObjectInputStream input;
-			input = new ObjectInputStream(new FileInputStream(new File(".\\\\savedata\\\\save.bin")));
+			input = new ObjectInputStream(new FileInputStream(new File("./savedata/save.bin")));
 			personagem = (ArrayList<Player>) input.readObject();
 			input.close();
 			return true;
