@@ -71,20 +71,23 @@ public class CharCreationController {
 				if (Main.instancia().MSGEscolha("Já existe um save, deseja criar um novo?") == true) {
 					Player jogador = new Player(campoNome.getText(), escolherClasse.getText(), 100, 100, 20, 0);
 					Main.operacoes().addChar(jogador);
+					if(Main.operacoes().salvarArquivo() == true) {
 					AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));
 					Scene Espera = new Scene(fxmlEspera);
 					primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 					primaryStage.setScene(Espera);
-					Main.operacoes().salvarArquivo();
+					}
 				}
 			}else {
+				if(Main.operacoes().salvarArquivo() == true) {
+					Main.operacoes().salvarArquivo();
 					Player jogador = new Player(campoNome.getText(), escolherClasse.getText(), 100, 100, 20, 0);
 					Main.operacoes().addChar(jogador);
 					AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));
 					Scene Espera = new Scene(fxmlEspera);
 					primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 					primaryStage.setScene(Espera);
-					Main.operacoes().salvarArquivo();
+				}
 			}
 		}
 	}

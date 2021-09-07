@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 	public static MetodosAuxiliares ma;
 	public static Operacoes op;
+	public static CombateController cc;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -45,6 +46,13 @@ public class Main extends Application {
 			op = new Operacoes();
 		}
 		return op;
+	}
+	
+	public static CombateController combate() {
+		if (cc == null) {
+			cc = cc = new CombateController();
+		}
+		return cc;
 	}
 	
 	public static void main(String[] args) {
