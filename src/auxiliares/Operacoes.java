@@ -34,7 +34,7 @@ public class Operacoes {
 		}
 	}
 	
-	public void danoAtaque(int dano, String nome) {
+	public void danoAtaquePlayer(int dano, String nome) {
 		for(Monsters m :monstros ) {
 			if(m.getNome().equals(nome)) {
 				if(dano>m.getVida()) {
@@ -47,6 +47,18 @@ public class Operacoes {
 		}
 	}
 	
+	public void danoAtaqueInimigo(int dano) {
+		for(Player p :personagem ) {
+			if(p != null) {
+				if(dano>p.getVida()) {
+					p.setVida(0);
+				}else {
+					p.setVida(p.getVida()-dano);
+				}
+			
+			}
+		}
+	}
 	public boolean condicaoVitoria(String nome) {
 		for(Monsters m :monstros ) {
 			if(m.getNome().equals(nome)) {
@@ -57,13 +69,31 @@ public class Operacoes {
 		return false;
 	}
 	
-	public void atualizaInformacoes(String nome,Label vida,Label mana) {
+	public void atualizaInformacoesInimigo(String nome,Label vida,Label mana) {
 		for(Monsters m :monstros ) {
 			if(m.getNome().equals(nome)) {
 		vida.setText(String.valueOf(m.getVida()));
 		mana.setText(String.valueOf(m.getMana()));
 			}
 		}
+	}
+	
+	public void atualizaInformacoesPlayer(Label vida,Label mana) {
+		for(Player p :personagem ) {
+			if( p!= null) {
+		vida.setText(String.valueOf(p.getVida()));
+		mana.setText(String.valueOf(p.getMana()));
+			}
+		}
+	}
+	
+	public void resetaAtributos() {
+		for(Player p :personagem ) {
+			if(p != null) {
+				p.setVida(100);
+				p.setMana(100);
+				}
+			}
 	}
 	
 	public void pegaInformaçõesMonstro(ImageView imagemMonstro, Label nome,Label vida,Label mana) {
@@ -104,8 +134,6 @@ public class Operacoes {
 			if (jogador != null) {
 				if(jogador.getLevel() != 50)
 				jogador.setLevel(jogador.getLevel()+1);
-				else
-					Main.instancia().MSG("Você atingiu o level máximo");
 				}
 			}
 	}
