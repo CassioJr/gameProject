@@ -1,6 +1,5 @@
 package application;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -73,14 +72,21 @@ public class EsperaController implements Initializable {
 	}
 	
 	public void btnExplorar(ActionEvent event) throws IOException {
-		AnchorPane fxmlcombate = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaCombate.fxml"));
-		Scene combate = new Scene(fxmlcombate);
+		FXMLLoader fxmlcombate = new FXMLLoader(getClass().getResource("/telas/TelaCombate.fxml"));
+		Parent root = fxmlcombate.load();
+		
+		CombateController combate = fxmlcombate.getController();
+		combate.randomizaCombate();
+		
 		primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setScene(combate);
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();	
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Informacoes();
+		Main.operacoes().lerArquivoMonstros();	
 	}
 }
