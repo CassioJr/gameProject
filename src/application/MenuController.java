@@ -20,6 +20,7 @@ public class MenuController implements Initializable {
 	private Button continuar;
 	private Stage primaryStage;
 
+	/*Metodo que chama a tela de espera que serve para continuar o jogo*/
 	public void continueGame(ActionEvent event) throws IOException {
 		Main.operacoes().lerArquivo();
 		AnchorPane fxmlCharCreation = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));
@@ -27,23 +28,24 @@ public class MenuController implements Initializable {
 		primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(NovoJogo);
 		primaryStage.show();
-
 	}
 
+	/*Metodo que chama a tela para realizar a tela de criação de personagem*/
 	public void newGame(ActionEvent event) throws IOException {
 		// Main.instancia().MusicBackground("create");
-		AnchorPane fxmlCharCreation = (AnchorPane) FXMLLoader
-				.load(getClass().getResource("/telas/TelaCriacaoPersonagem.fxml"));
+		AnchorPane fxmlCharCreation = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaCriacaoPersonagem.fxml"));
 		Scene NovoJogo = new Scene(fxmlCharCreation);
 		primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(NovoJogo);
 		primaryStage.show();
 	}
 
+	/*Metodo alternativo que realiza o fechamento do programa, inves de o usuario clicar no fechar no botão da janela*/
 	public void exit() {
 		System.exit(0);
 	}
 
+	/*Metodo que verifica se o arquivo de save do usuario existe, então ele deixa visivel o botão de contiunuar o save*/
 	public boolean existeArquivo() {
 		File arquivo = new File("./savedata/save.bin");
 		if (arquivo.exists()) {
@@ -64,9 +66,8 @@ public class MenuController implements Initializable {
 	}
 
 	/*
-	 * Metodo que o programa inicia chama o metodo de music que faz a musica começar
-	 * a tocar, e o metodo Que verifica se existe o arquivo de save para apresentar
-	 * o botão de continuar
+	 * Metodo que faz com que assim que o programa inicie chama o metodo de music que faz a musica começar
+	 * a tocar, e o metodo Que verifica se existe o arquivo de save para apresentar o botão de continuar
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

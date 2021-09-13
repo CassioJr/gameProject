@@ -32,11 +32,13 @@ public class EsperaController implements Initializable {
 	@FXML
 	private ImageView jogador;
 	
+	/*Metodo chama o metodo de carregar informações do player da classe de operacoes*/
 	public void Informacoes() {
 		Main.operacoes().carregaInformacoes(nomePlayer, nivelPlayer, ouroPlayer);
 	}
 
-
+	/*Metodo que quando é clicado o botão de sobreHistoria ele deixa como visivel a tela telaSobreHistoria e caso 
+	 * ela esteja visivel e ela seja clicada ela é setada com visibilidade false*/
 	public void btnSobreHistoria(){
 		if(!telaSobreHistoria.isVisible()) {
 			telaSobreHistoria.setVisible(true);
@@ -49,6 +51,8 @@ public class EsperaController implements Initializable {
 		System.out.println("Olá Mundo");
 	}
 	
+	/*Metodo que quando é clicado o botão de dragao do mapa ele chama a tela de combate para a 
+	 * batalha contro um mob definido*/
 	public void btnDragon(ActionEvent event) throws IOException {
 		FXMLLoader fxmlcombate = new FXMLLoader(getClass().getResource("/telas/TelaCombate.fxml"));
 		Parent root = fxmlcombate.load();
@@ -62,6 +66,7 @@ public class EsperaController implements Initializable {
 		primaryStage.show();	
 	}
 	
+	/*Metodo que chama a tela de menu inicial caso o player aceite*/
 	public void btnMenu(ActionEvent event) throws IOException {
 		if(Main.instancia().MSGEscolha("Deseja voltar ao menu?") == true) {
 			AnchorPane fxmlmenu = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaMenu.fxml"));
@@ -71,6 +76,7 @@ public class EsperaController implements Initializable {
 		}
 	}
 	
+	/*Metodo que chama a tela de combate*/
 	public void btnExplorar(ActionEvent event) throws IOException {
 		FXMLLoader fxmlcombate = new FXMLLoader(getClass().getResource("/telas/TelaCombate.fxml"));
 		Parent root = fxmlcombate.load();
@@ -84,6 +90,7 @@ public class EsperaController implements Initializable {
 		primaryStage.show();	
 	}
 
+	/*Metodo quando a tela de espera é inicializada carrega as informações do player atulizadas e carrega o arquivo de monstros*/
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Informacoes();

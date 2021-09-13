@@ -32,6 +32,8 @@ public class CharCreationController {
 	private MenuItem mago, arqueiro, guerreiro;
 	private Stage primaryStage;
 
+	/*Metodo que coloca a imagem da classe referente ao mago na tela de criação de personagens
+	 * e coloca o texto do nome da classe no botao de escolha*/
 	public void mago() {
 		escolherClasse.setText(mago.getText());
 		File file = new File("./resources/Imagens_Classes/Mago.png");
@@ -39,6 +41,8 @@ public class CharCreationController {
 		classeImagem.setImage(image);
 	}
 
+	/*Metodo que coloca a imagem da classe referente ao arqueiro na tela de criação de personagens
+	 * e coloca o texto do nome da classe no botao de escolha*/
 	public void arqueiro() {
 		escolherClasse.setText(arqueiro.getText());
 		File file = new File("./resources/Imagens_Classes/Arqueiro.png");
@@ -46,13 +50,17 @@ public class CharCreationController {
 		classeImagem.setImage(image);
 	}
 
+	/*Metodo que coloca a imagem da classe referente ao guerreiro na tela de criação de personagens
+	 * e coloca o texto do nome da classe no botao de escolha*/
 	public void guerreiro() {
 		escolherClasse.setText(guerreiro.getText());
 		File file = new File("./resources/Imagens_Classes/Guerreiro.png");
 		Image image = new Image(file.toURI().toString());
 		classeImagem.setImage(image);
 	}
-
+	
+	/*Metodo que valida os campos para ver se o campo de nick ou escolha de classe estão vazios
+	 * na hora de realizar a criação de personagem*/
 	public boolean validacaoCampos() {
 		MetodosAuxiliares ma = new MetodosAuxiliares();
 		if (campoNome.getText().isEmpty()) {
@@ -65,10 +73,14 @@ public class CharCreationController {
 		return false;
 	}
 
+	/*Metodo que inicia o game pegando as informações de classe e nick que foi informado pelo player
+	 * E criando assim um arquivo de save para o jogo e chamando a tela de espera*/
 	public void iniciar(ActionEvent event) throws IOException {
 		if (validacaoCampos() == false) {
+			//Aqui se verifica se já existe um save em andamento e é feito a pergunta se deseja sobreescrever por cima do save atual
 			if (Main.instancia().existeArquivoSave() == true) {
 				if (Main.instancia().MSGEscolha("Já existe um save, deseja criar um novo?") == true) {
+					//Aqui é instanciado o objeto do player em que é inciado com 100 de vida e de mana, e com nivel 1 e 0 de ouro
 					Player jogador = new Player(campoNome.getText(), escolherClasse.getText(), 100, 100, 1, 0);
 					Main.operacoes().addChar(jogador);
 					if(Main.operacoes().salvarArquivo() == true) {
@@ -92,6 +104,7 @@ public class CharCreationController {
 		}
 	}
 
+	/*Metodo que realiza a função de voltar para a tela de menu*/
 	public void voltar(ActionEvent event) throws IOException {
 		// Main.instancia().MusicBackground("main_title");
 		AnchorPane fxmlmenu = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaMenu.fxml"));
