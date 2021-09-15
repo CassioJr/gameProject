@@ -62,7 +62,7 @@ public class MenuController implements Initializable {
 	 */
 
 	public void music() {
-		// Main.instancia().MusicBackground("main_title");
+		Main.instancia().MusicBackground("Music1");
 	}
 
 	/*
@@ -71,7 +71,7 @@ public class MenuController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// music();
+		music();
 		existeArquivo();
 	}
 }
