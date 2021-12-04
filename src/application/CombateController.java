@@ -13,10 +13,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class CombateController implements Initializable {
@@ -28,22 +30,25 @@ public class CombateController implements Initializable {
 	private Random rand;
 	private boolean turnoPlayer = true;
 	private int quantiaOuro;
+    @FXML
+    private Pane barraHabilidades;
+    @FXML
+    private Button habilidadeDano;
 
 	//Metodo que randomiza o combate do player
 	public void randomizaCombate() {
-		Main.operacoes().pegaInformaçõesMonstro(inimigo, nomeMonstro, vidaMonstro, manaMonstro);
+		Main.operacoes().pegaInformacoesMonstro(inimigo, nomeMonstro, vidaMonstro, manaMonstro);
 	}
 
 	/*Metodo para iniciar o combate com o mob do dragao que esta no mapa*/
 	public void mobMapaDragao1() {
-		File file = new File("./resources/Monsters/dragon.png");
-		Image image = new Image(file.toURI().toString());
-		inimigo.setImage(image);
+		Main.operacoes().mobMapa1(inimigo, vidaMonstro, manaMonstro);
+		nomeMonstro.setText("DragÃ£o");
 	}
 
 	/*Metodo para fugir do combate caso o player opte por sim, chamando a tela de espera*/
 	public void fugir(ActionEvent event) throws IOException {
-		if (Main.instancia().MSGEscolha("Você deseja fugir?") == true) {
+		if (Main.instancia().MSGEscolha("Vocï¿½ deseja fugir?") == true) {
 			AnchorPane fxmlespera = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));
 			Scene espera = new Scene(fxmlespera);
 			primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -52,13 +57,13 @@ public class CombateController implements Initializable {
 	}
 
 	/*Metodo para fugir do combate caso o player opte por sim, chamando a tela de espera
-	 *verificando se após os metodos que realizam os danos, o player ganhou ou perdeu*/
+	 *verificando se apï¿½s os metodos que realizam os danos, o player ganhou ou perdeu*/
 	public void atacar(ActionEvent event) throws IOException {
 		turnoPlayer();
 		turnoInimigo();
 		if (Main.operacoes().condicaoVitoria(nomeMonstro.getText()) == true) {
 			ganhouLuta();
-			////Verifica se a vida do monstro desceu para 0 então o player ganheou, após é chamada a tela de vitoria
+			////Verifica se a vida do monstro desceu para 0 entï¿½o o player ganheou, apï¿½s ï¿½ chamada a tela de vitoria
 			FXMLLoader fxmlcombate = new FXMLLoader(getClass().getResource("/telas/TelaVitoria.fxml"));
 			Parent root = fxmlcombate.load();
 			aposController combate = fxmlcombate.getController();
@@ -69,24 +74,62 @@ public class CombateController implements Initializable {
 			primaryStage.show();
 		} 
 		if(Main.operacoes().condicaoDerrota() == true) {
-			//Verifica se a vida do player desceu para 0 então é chamada a tela de derrota
+			//Verifica se a vida do player desceu para 0 entï¿½o ï¿½ chamada a tela de derrota
 			FXMLLoader fxmlcombate = new FXMLLoader(getClass().getResource("/telas/TelaDerrota.fxml"));
 			Parent root = fxmlcombate.load();
 			primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			Main.operacoes().resetaAtributos();
 		}
 		
 	}
 	
 	
 	public void barraAtaque() {
-		
+		barraHabilidades.setVisible(true);
+	}
+	
+	public void voltarBarra() {
+		barraHabilidades.setVisible(false);
+	}
+	
+	public void habilidadeDano1(ActionEvent event) throws IOException {
+		Main.operacoes().danoHabilidade1(nomeMonstro.getText(), habilidadeDano);
+		turnoPlayer();
+		turnoInimigo();
+		if (Main.operacoes().condicaoVitoria(nomeMonstro.getText()) == true) {
+			ganhouLuta();
+			////Verifica se a vida do monstro desceu para 0 entï¿½o o player ganheou, apï¿½s ï¿½ chamada a tela de vitoria
+			FXMLLoader fxmlcombate = new FXMLLoader(getClass().getResource("/telas/TelaVitoria.fxml"));
+			Parent root = fxmlcombate.load();
+			aposController combate = fxmlcombate.getController();
+			combate.colocaValores(quantiaOuro, rand.nextInt(30));
+			primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} 
+		if(Main.operacoes().condicaoDerrota() == true) {
+			//Verifica se a vida do player desceu para 0 entï¿½o ï¿½ chamada a tela de derrota
+			FXMLLoader fxmlcombate = new FXMLLoader(getClass().getResource("/telas/TelaDerrota.fxml"));
+			Parent root = fxmlcombate.load();
+			primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			Main.operacoes().resetaAtributos();
+		}
+	}
+	
+	public void habilidadeCura(ActionEvent event) throws IOException {
+		Main.operacoes().habilidadeCura();
+		turnoInimigo();
 	}
 
 	/*Metodo que caso o player ganhou ele ira calcular o quando de experiencia e ouro que ele ira ganhar
-	 *e resetar os seus atributos como vida e mana, alem de salvar no arquivo os atuais atributos do player após o combate*/
+	 *e resetar os seus atributos como vida e mana, alem de salvar no arquivo os atuais atributos do player apï¿½s o combate*/
 	public void ganhouLuta() {
 		rand = new Random();
 		quantiaOuro = rand.nextInt(10);
@@ -97,7 +140,7 @@ public class CombateController implements Initializable {
 		System.out.println("Ganhou");
 	}
 
-	/*Metodo que é referente ao turno do player, caso seja o turno dele
+	/*Metodo que ï¿½ referente ao turno do player, caso seja o turno dele
 	 *ele randomiza um dano para o player que sera contabilizado na vida do monstro*/
 	public void turnoPlayer() {
 		if (turnoPlayer == true) {
@@ -108,7 +151,7 @@ public class CombateController implements Initializable {
 		}
 	}
 
-	/*Metodo que é referente ao turno do inimigo, caso seja o turno dele
+	/*Metodo que ï¿½ referente ao turno do inimigo, caso seja o turno dele
 	 *ele randomiza um dano para o inimigo que sera contabilizado na vida do player*/
 	public void turnoInimigo() {
 		if (turnoPlayer == false) {
@@ -118,10 +161,10 @@ public class CombateController implements Initializable {
 		}
 	}
 
-	/*Metodo quando a tela é renderizada ele chama o metodo de pegaInformaçõesPersonagem dentro da classe de operacoes*/
+	/*Metodo quando a tela ï¿½ renderizada ele chama o metodo de pegaInformaï¿½ï¿½esPersonagem dentro da classe de operacoes*/
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		Main.operacoes().pegaInformaçõesPersonagem(jogador, NivelPlayer, VidaPlayer, ManaPlayer);
+		Main.operacoes().pegaInformacoeesPersonagem(jogador, NivelPlayer, VidaPlayer, ManaPlayer);
 
 	}
 }

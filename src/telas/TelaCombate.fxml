@@ -100,7 +100,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button layoutX="85.0" layoutY="9.0" mnemonicParsing="false" onAction="#atacar" prefHeight="53.0" prefWidth="63.0">
+            <Button layoutX="85.0" layoutY="9.0" mnemonicParsing="false" onAction="#barraAtaque" prefHeight="53.0" prefWidth="63.0">
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="37.0">
                      <image>
@@ -109,14 +109,14 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Pane prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: #3e5957;" visible="false">
+            <Pane fx:id="barraHabilidades" prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: #3e5957;" visible="false">
                <children>
-                  <Button layoutX="418.0" layoutY="9.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="159.0" text="Curar" />
+                  <Button layoutX="418.0" layoutY="9.0" mnemonicParsing="false" onAction="#habilidadeCura" prefHeight="53.0" prefWidth="159.0" text="Curar" />
                   <Button layoutX="221.0" layoutY="9.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="146.0" text="Buffar ataque" />
-                  <Button layoutX="23.0" layoutY="9.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="146.0" text="Atacar" />
+                  <Button layoutX="23.0" layoutY="9.0" mnemonicParsing="false" onAction="#atacar" prefHeight="53.0" prefWidth="146.0" text="Atacar" />
+                  <Button fx:id="habilidadeDano" layoutX="854.0" layoutY="9.0" mnemonicParsing="false" onAction="#habilidadeDano1" prefHeight="53.0" prefWidth="133.0" text="Chuva de meteoros" />
                   <Button layoutX="650.0" layoutY="9.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="146.0" text="Fireball" />
-                  <Button layoutX="854.0" layoutY="9.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="133.0" text="Chuva de meteoros" />
-                  <Button layoutX="1059.0" layoutY="9.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="133.0" text="Voltar" />
+                  <Button layoutX="1059.0" layoutY="9.0" mnemonicParsing="false" onAction="#voltarBarra" prefHeight="53.0" prefWidth="133.0" text="Voltar" />
                </children>
             </Pane>
          </children></Pane>

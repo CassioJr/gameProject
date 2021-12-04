@@ -41,7 +41,7 @@ public class MetodosAuxiliares {
 	/*Metodo que faz com que uma musica seja tocada ao fundo, 
 	 * ela recebe como parametro o nome do arquivo de musica dentro de (resources/songs) */
 	public void MusicBackground(String name) {
-		String nomeMusica = "./Musicas/" + name + ".mp3";
+		String nomeMusica = "./resources/songs/" + name + ".mp3";
 		musica = new Media(Paths.get(nomeMusica).toUri().toString());
 		mp = new MediaPlayer(musica);
 		mp.play();

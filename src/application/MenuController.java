@@ -56,9 +56,10 @@ public class MenuController implements Initializable {
 	}
 
 	/*
-	 * Metodo para tocar a musica de background da tela de titulo ela Chama um
-	 * metodo da main para não ter necessidade de toda hora que chamar ela A classe
-	 * ser instanciada, fazendo assim a musica não tocar.
+	 * Metodo para tocar a musica de background da tela de titulo ela chama um
+	 * metodo da main para não ter necessidade de toda hora que chamar ela, a classe
+	 * ser instanciada fazendo assim a musica não tocar.
+	 * O metodo recebe como parametro o nome da musica que deseja que seja tocada
 	 */
 
 	public void music() {
@@ -73,5 +74,6 @@ public class MenuController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		music();
 		existeArquivo();
+		Main.operacoes().verificaPastaSave();
 	}
 }
