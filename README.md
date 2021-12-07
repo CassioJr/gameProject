@@ -2,8 +2,10 @@
  
 ### Titulo Jogo: Não tem ainda
 
-#### Linguagem a ser desenvolvida: 
-- Java com Javafx.
+#### Linguagem e frameworks que será utilizado: 
+- Java;
+
+- JavaFX.
 
 #### Ferramentas para apoio do desenvolvimento: 
 
