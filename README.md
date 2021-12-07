@@ -2,7 +2,7 @@
  
 ### Titulo Jogo: Não tem ainda
 
-### Linguagem a ser desenvolvida: 
+#### Linguagem a ser desenvolvida: 
 - Java com Javafx.
 
 #### Ferramentas para apoio do desenvolvimento: 
@@ -13,6 +13,6 @@
 
 - Scene Builder.
 
-### Prototipo do figma:
+#### Prototipo do figma:
 > https://www.figma.com/file/JDF9vo22H944UIFbNlOXu9/GameProject?node-id=2%3A80
 
