@@ -1,17 +1,18 @@
 <h2>GameProject</h2>
  
-Titulo Jogo: Não tem ainda
+### Titulo Jogo: Não tem ainda
 
-Linguagem a ser desenvolvida: Java juntamente com Javafx para a interface.
+### Linguagem a ser desenvolvida: 
+- Java com Javafx.
 
-Ferramentas para apoio do desenvolvimento: 
+#### Ferramentas para apoio do desenvolvimento: 
 
--Trello (Talvez); 
+- Trello (Talvez); 
 
--Figma;
+- Figma;
 
--Scene Builder.
+- Scene Builder.
 
-Prototipo do figma:
-https://www.figma.com/file/JDF9vo22H944UIFbNlOXu9/GameProject?node-id=2%3A80
+### Prototipo do figma:
+> https://www.figma.com/file/JDF9vo22H944UIFbNlOXu9/GameProject?node-id=2%3A80
 
