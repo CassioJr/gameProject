@@ -1,4 +1,4 @@
-package auxiliares;
+package utils;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -15,20 +15,20 @@ public class MetodosAuxiliares {
 
 	
 	/*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
-	 * você deseja apresentar na mensagem que sera apresentada ao usuario*/
+	 * vocï¿½ deseja apresentar na mensagem que sera apresentada ao usuario*/
 	public void MSG(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.WARNING);
-		alerta.setTitle("Atenção");
+		alerta.setTitle("Atenï¿½ï¿½o");
 		alerta.setHeaderText(null);
 		alerta.setContentText(msg);
 		alerta.showAndWait();
 	}
 
-	/*Metodo que apresenta uma msg de escolha perguntando sim ou não ao usuario quando chamada, 
-	 * ela recebe como parametro o conteudo que você deseja apresentar na mensagem que sera apresentada ao usuario*/
+	/*Metodo que apresenta uma msg de escolha perguntando sim ou nï¿½o ao usuario quando chamada, 
+	 * ela recebe como parametro o conteudo que vocï¿½ deseja apresentar na mensagem que sera apresentada ao usuario*/
 	public boolean MSGEscolha(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-		alerta.setTitle("Atenção");
+		alerta.setTitle("Atenï¿½ï¿½o");
 		alerta.setHeaderText(null);
 		alerta.setContentText(msg);
 		Optional<ButtonType> result = alerta.showAndWait();

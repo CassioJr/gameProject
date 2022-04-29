@@ -1,10 +1,9 @@
-package application;
+package controller;
 
 import java.io.File;
 import java.io.IOException;
 
-import auxiliares.MetodosAuxiliares;
-import classesEntidades.Player;
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +16,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.Player;
+import utils.MetodosAuxiliares;
 
 public class CharCreationController {
 	@FXML
@@ -32,7 +33,7 @@ public class CharCreationController {
 	private MenuItem mago, arqueiro, guerreiro;
 	private Stage primaryStage;
 
-	/*Metodo que coloca a imagem da classe referente ao mago na tela de criação de personagens
+	/*Metodo que coloca a imagem da classe referente ao mago na tela de criaï¿½ï¿½o de personagens
 	 * e coloca o texto do nome da classe no botao de escolha*/
 	public void mago() {
 		escolherClasse.setText(mago.getText());
@@ -41,7 +42,7 @@ public class CharCreationController {
 		classeImagem.setImage(image);
 	}
 
-	/*Metodo que coloca a imagem da classe referente ao arqueiro na tela de criação de personagens
+	/*Metodo que coloca a imagem da classe referente ao arqueiro na tela de criaï¿½ï¿½o de personagens
 	 * e coloca o texto do nome da classe no botao de escolha*/
 	public void arqueiro() {
 		escolherClasse.setText(arqueiro.getText());
@@ -50,7 +51,7 @@ public class CharCreationController {
 		classeImagem.setImage(image);
 	}
 
-	/*Metodo que coloca a imagem da classe referente ao guerreiro na tela de criação de personagens
+	/*Metodo que coloca a imagem da classe referente ao guerreiro na tela de criaï¿½ï¿½o de personagens
 	 * e coloca o texto do nome da classe no botao de escolha*/
 	public void guerreiro() {
 		escolherClasse.setText(guerreiro.getText());
@@ -59,28 +60,28 @@ public class CharCreationController {
 		classeImagem.setImage(image);
 	}
 	
-	/*Metodo que valida os campos para ver se o campo de nick ou escolha de classe estão vazios
-	 * na hora de realizar a criação de personagem*/
+	/*Metodo que valida os campos para ver se o campo de nick ou escolha de classe estï¿½o vazios
+	 * na hora de realizar a criaï¿½ï¿½o de personagem*/
 	public boolean validacaoCampos() {
 		MetodosAuxiliares ma = new MetodosAuxiliares();
 		if (campoNome.getText().isEmpty()) {
-			ma.MSG("Você deve preencher o campo de nick ");
+			ma.MSG("Vocï¿½ deve preencher o campo de nick ");
 			return true;
 		} else if (escolherClasse.getText().isEmpty()) {
-			ma.MSG("Você deve escolher uma classe");
+			ma.MSG("Vocï¿½ deve escolher uma classe");
 			return true;
 		}
 		return false;
 	}
 
-	/*Metodo que inicia o game pegando as informações de classe e nick que foi informado pelo player
+	/*Metodo que inicia o game pegando as informaï¿½ï¿½es de classe e nick que foi informado pelo player
 	 * E criando assim um arquivo de save para o jogo e chamando a tela de espera*/
 	public void iniciar(ActionEvent event) throws IOException {
 		if (validacaoCampos() == false) {
-			//Aqui se verifica se já existe um save em andamento e é feito a pergunta se deseja sobreescrever por cima do save atual
+			//Aqui se verifica se jï¿½ existe um save em andamento e ï¿½ feito a pergunta se deseja sobreescrever por cima do save atual
 			if (Main.instancia().existeArquivoSave() == true) {
-				if (Main.instancia().MSGEscolha("Já existe um save, deseja criar um novo?") == true) {
-					//Aqui é instanciado o objeto do player em que é inciado com 100 de vida e de mana, e com nivel 1 e 0 de ouro
+				if (Main.instancia().MSGEscolha("Jï¿½ existe um save, deseja criar um novo?") == true) {
+					//Aqui ï¿½ instanciado o objeto do player em que ï¿½ inciado com 100 de vida e de mana, e com nivel 1 e 0 de ouro
 					Player jogador = new Player(campoNome.getText(), escolherClasse.getText(), 100, 100, 1, 0);
 					Main.operacoes().addChar(jogador);
 					if(Main.operacoes().salvarArquivo() == true) {
@@ -104,7 +105,7 @@ public class CharCreationController {
 		}
 	}
 
-	/*Metodo que realiza a função de voltar para a tela de menu*/
+	/*Metodo que realiza a funï¿½ï¿½o de voltar para a tela de menu*/
 	public void voltar(ActionEvent event) throws IOException {
 		// Main.instancia().MusicBackground("main_title");
 		AnchorPane fxmlmenu = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaMenu.fxml"));

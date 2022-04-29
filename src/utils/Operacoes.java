@@ -1,4 +1,4 @@
-package auxiliares;
+package utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import application.Main;
-import classesEntidades.Monsters;
-import classesEntidades.Player;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import model.Monsters;
+import model.Player;
 
 public class Operacoes {
 	ArrayList<Player> personagem = new ArrayList<Player>();

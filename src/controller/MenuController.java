@@ -1,10 +1,11 @@
-package application;
+package controller;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,16 @@ public class MenuController implements Initializable {
 	private Button continuar;
 	private Stage primaryStage;
 
+	/*Metodo que chama a tela para realizar a tela de criaï¿½ï¿½o de personagem*/
+	public void newGame(ActionEvent event) throws IOException {
+		// Main.instancia().MusicBackground("create");
+		AnchorPane fxmlCharCreation = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaCriacaoPersonagem.fxml"));
+		Scene NovoJogo = new Scene(fxmlCharCreation);
+		primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(NovoJogo);
+		primaryStage.show();
+	}
+	
 	/*Metodo que chama a tela de espera que serve para continuar o jogo*/
 	public void continueGame(ActionEvent event) throws IOException {
 		Main.operacoes().lerArquivo();
@@ -30,23 +41,14 @@ public class MenuController implements Initializable {
 		primaryStage.show();
 	}
 
-	/*Metodo que chama a tela para realizar a tela de criação de personagem*/
-	public void newGame(ActionEvent event) throws IOException {
-		// Main.instancia().MusicBackground("create");
-		AnchorPane fxmlCharCreation = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaCriacaoPersonagem.fxml"));
-		Scene NovoJogo = new Scene(fxmlCharCreation);
-		primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setScene(NovoJogo);
-		primaryStage.show();
-	}
 
-	/*Metodo alternativo que realiza o fechamento do programa, inves de o usuario clicar no fechar no botão da janela*/
+	/*Metodo alternativo que realiza o fechamento do programa, inves de o usuario clicar no fechar no botï¿½o da janela*/
 	public void exit() {
 		System.exit(0);
 	}
 
-	/*Metodo que verifica se o arquivo de save do usuario existe, então ele deixa visivel o botão de contiunuar o save*/
-	public boolean existeArquivo() {
+	/*Metodo que verifica se o arquivo de save do usuario existe, entï¿½o ele deixa visivel o botï¿½o de contiunuar o save*/
+	public boolean existFile() {
 		File arquivo = new File("./savedata/save.bin");
 		if (arquivo.exists()) {
 			continuar.setVisible(true);
@@ -57,23 +59,23 @@ public class MenuController implements Initializable {
 
 	/*
 	 * Metodo para tocar a musica de background da tela de titulo ela chama um
-	 * metodo da main para não ter necessidade de toda hora que chamar ela, a classe
-	 * ser instanciada fazendo assim a musica não tocar.
+	 * metodo da main para nï¿½o ter necessidade de toda hora que chamar ela, a classe
+	 * ser instanciada fazendo assim a musica nï¿½o tocar.
 	 * O metodo recebe como parametro o nome da musica que deseja que seja tocada
 	 */
 
-	public void music() {
+	public void playMusic() {
 		Main.instancia().MusicBackground("Music1");
 	}
 
 	/*
-	 * Metodo que faz com que assim que o programa inicie chama o metodo de music que faz a musica começar
-	 * a tocar, e o metodo Que verifica se existe o arquivo de save para apresentar o botão de continuar
+	 * Metodo que faz com que assim que o programa inicie chama o metodo de music que faz a musica comeï¿½ar
+	 * a tocar, e o metodo Que verifica se existe o arquivo de save para apresentar o botï¿½o de continuar
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		music();
-		existeArquivo();
+		playMusic();
+		existFile();
 		Main.operacoes().verificaPastaSave();
 	}
 }

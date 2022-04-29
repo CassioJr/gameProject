@@ -1,9 +1,10 @@
-package application;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,13 +33,13 @@ public class EsperaController implements Initializable {
 	@FXML
 	private ImageView jogador;
 	
-	/*Metodo chama o metodo de carregar informações do player da classe de operacoes*/
+	/*Metodo chama o metodo de carregar informaï¿½ï¿½es do player da classe de operacoes*/
 	public void Informacoes() {
 		Main.operacoes().carregaInformacoes(nomePlayer, nivelPlayer, ouroPlayer);
 	}
 
-	/*Metodo que quando é clicado o botão de sobreHistoria ele deixa como visivel a tela telaSobreHistoria e caso 
-	 * ela esteja visivel e ela seja clicada ela é setada com visibilidade false*/
+	/*Metodo que quando ï¿½ clicado o botï¿½o de sobreHistoria ele deixa como visivel a tela telaSobreHistoria e caso 
+	 * ela esteja visivel e ela seja clicada ela ï¿½ setada com visibilidade false*/
 	public void btnSobreHistoria(){
 		if(!telaSobreHistoria.isVisible()) {
 			telaSobreHistoria.setVisible(true);
@@ -48,10 +49,10 @@ public class EsperaController implements Initializable {
 	}
 	
 	public void btnreino() {
-		System.out.println("Olá Mundo");
+		System.out.println("Olï¿½ Mundo");
 	}
 	
-	/*Metodo que quando é clicado o botão de dragao do mapa ele chama a tela de combate para a 
+	/*Metodo que quando ï¿½ clicado o botï¿½o de dragao do mapa ele chama a tela de combate para a 
 	 * batalha contro um mob definido*/
 	public void btnDragon(ActionEvent event) throws IOException {
 		FXMLLoader fxmlcombate = new FXMLLoader(getClass().getResource("/telas/TelaCombate.fxml"));
@@ -90,7 +91,7 @@ public class EsperaController implements Initializable {
 		primaryStage.show();	
 	}
 
-	/*Metodo quando a tela de espera é inicializada carrega as informações do player atulizadas e carrega o arquivo de monstros*/
+	/*Metodo quando a tela de espera ï¿½ inicializada carrega as informaï¿½ï¿½es do player atulizadas e carrega o arquivo de monstros*/
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Informacoes();

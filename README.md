@@ -9,8 +9,6 @@
 
 #### Ferramentas para apoio do desenvolvimento: 
 
-- Trello (Talvez); 
-
 - Figma;
 
 - Scene Builder.
