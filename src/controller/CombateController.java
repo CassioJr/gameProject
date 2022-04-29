@@ -20,6 +20,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import utils.Messages;
 
 public class CombateController implements Initializable {
 	@FXML
@@ -48,7 +49,7 @@ public class CombateController implements Initializable {
 
 	/*Metodo para fugir do combate caso o player opte por sim, chamando a tela de espera*/
 	public void fugir(ActionEvent event) throws IOException {
-		if (Main.instancia().MSGEscolha("Voc� deseja fugir?") == true) {
+		if (Messages.MSGEscolha("Voc� deseja fugir?") == true) {
 			AnchorPane fxmlespera = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));
 			Scene espera = new Scene(fxmlespera);
 			primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

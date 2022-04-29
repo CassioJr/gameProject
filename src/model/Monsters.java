@@ -3,10 +3,10 @@ package model;
 import java.io.Serializable;
 
 public class Monsters implements Serializable{
-	String image;
-	String nome;
-	int vida;
-	int mana;
+	private String image;
+	private String nome;
+	private int vida;
+	private int mana;
 	
 	public Monsters (String image,String nome, int vida, int mana) {
 		this.image = image;
@@ -46,6 +46,5 @@ public class Monsters implements Serializable{
 	public void setMana(int mana) {
 		this.mana = mana;
 	}
-	
 
 }

@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import utils.Messages;
 
 public class EsperaController implements Initializable {
 	private Stage primaryStage;
@@ -69,7 +70,7 @@ public class EsperaController implements Initializable {
 	
 	/*Metodo que chama a tela de menu inicial caso o player aceite*/
 	public void btnMenu(ActionEvent event) throws IOException {
-		if(Main.instancia().MSGEscolha("Deseja voltar ao menu?") == true) {
+		if(Messages.MSGEscolha("Deseja voltar ao menu?") == true) {
 			AnchorPane fxmlmenu = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaMenu.fxml"));
 			Scene main = new Scene(fxmlmenu);
 			primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -10,13 +10,13 @@ public class Player implements Serializable{
 	private int mana;
 	private int level;
 	
-	public Player(String nome,String classe,int vida, int mana, int level, int dinheiro) {
+	public Player(String nome,String classe) {
 		this.nome = nome;
 		this.classe = classe;
-		this.vida = vida;
-		this.mana = mana;
-		this.level = level;
-		this.dinheiro = dinheiro;
+		this.vida = 100;
+		this.mana = 100;
+		this.level = 1;
+		this.dinheiro = 0;
 	}
 	
 	public String getNome() {

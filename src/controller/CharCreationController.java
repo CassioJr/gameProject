@@ -17,6 +17,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Player;
+import utils.FileManagement;
+import utils.Messages;
 import utils.MetodosAuxiliares;
 
 public class CharCreationController {
@@ -65,10 +67,10 @@ public class CharCreationController {
 	public boolean validacaoCampos() {
 		MetodosAuxiliares ma = new MetodosAuxiliares();
 		if (campoNome.getText().isEmpty()) {
-			ma.MSG("Voc� deve preencher o campo de nick ");
+			Messages.MSG("Voc� deve preencher o campo de nick ");
 			return true;
 		} else if (escolherClasse.getText().isEmpty()) {
-			ma.MSG("Voc� deve escolher uma classe");
+			Messages.MSG("Voc� deve escolher uma classe");
 			return true;
 		}
 		return false;
@@ -79,10 +81,10 @@ public class CharCreationController {
 	public void iniciar(ActionEvent event) throws IOException {
 		if (validacaoCampos() == false) {
 			//Aqui se verifica se j� existe um save em andamento e � feito a pergunta se deseja sobreescrever por cima do save atual
-			if (Main.instancia().existeArquivoSave() == true) {
-				if (Main.instancia().MSGEscolha("J� existe um save, deseja criar um novo?") == true) {
+			if (FileManagement.existSaveFile() == true) {
+				if (Messages.MSGEscolha("J� existe um save, deseja criar um novo?") == true) {
 					//Aqui � instanciado o objeto do player em que � inciado com 100 de vida e de mana, e com nivel 1 e 0 de ouro
-					Player jogador = new Player(campoNome.getText(), escolherClasse.getText(), 100, 100, 1, 0);
+					Player jogador = new Player(campoNome.getText(), escolherClasse.getText());
 					Main.operacoes().addChar(jogador);
 					if(Main.operacoes().salvarArquivo() == true) {
 					AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));
@@ -94,7 +96,7 @@ public class CharCreationController {
 			}else {
 				if(Main.operacoes().salvarArquivo() == true) {
 					Main.operacoes().salvarArquivo();
-					Player jogador = new Player(campoNome.getText(), escolherClasse.getText(), 100, 100, 20, 0);
+					Player jogador = new Player(campoNome.getText(), escolherClasse.getText());
 					Main.operacoes().addChar(jogador);
 					AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));
 					Scene Espera = new Scene(fxmlEspera);

@@ -7,8 +7,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
-
-import application.Main;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -266,13 +264,6 @@ public class Operacoes {
 		}
 	}
 
-	// Metodo para verificar se existe a pasta de save no disco local C
-	public void verificaPastaSave() {
-		File folder = new File("C:/savedata");
-		if (!folder.exists())
-			folder.mkdir();
-	}
-
 	/* Metodo que salva o personagem criado pelo player em um arquivo binario */
 	public boolean salvarArquivo() {
 		try {// � relizado um tratamento de exe��o que caso o n�o possa ser salvo � informado
@@ -283,7 +274,7 @@ public class Operacoes {
 			output.close();
 			return true;
 		} catch (Exception e) {
-			Main.instancia().MSG("N�o foi possivel criar o arquivo");
+			Messages.MSG("Não foi possivel criar o arquivo");
 			return false;
 		}
 	}
@@ -293,14 +284,14 @@ public class Operacoes {
 	 * player
 	 */
 	public boolean lerArquivo() {
-		try {// � relizado um tratamento de exe��o que caso o arquivo n�o exista � informado o erro de ("N�o foi possivel ler o arquivo")
+		try {// É relizado um tratamento de execução que caso o arquivo não exista e informado o erro de ("Não foi possivel ler o arquivo")
 			ObjectInputStream input;
 			input = new ObjectInputStream(new FileInputStream(new File("./savedata/save.bin")));
 			personagem = (ArrayList<Player>) input.readObject();
 			input.close();
 			return true;
 		} catch (Exception e) {
-			Main.instancia().MSG("N�o foi possivel ler o arquivo");
+			Messages.MSG("Não foi possivel ler o arquivo de save");
 			return false;
 		}
 	}
@@ -309,14 +300,14 @@ public class Operacoes {
 	 * Metodo que realiza a leitura do arquivo binario de inimigos que estarao no jogo
 	 */
 	public void lerArquivoMonstros() {
-		try {// � relizado um tratamento de exe��o que caso o arquivo n�o exista � informado  o erro de ("N�o foi possivel ler o arquivo")
+		try {// � relizado um tratamento de execução que caso o arquivo não exista � informado  o erro de ("Não foi possivel ler o arquivo")
 			ObjectInputStream input;
 			input = new ObjectInputStream(new FileInputStream(new File("./savedata/monstros.bin")));
 			monstros = (ArrayList<Monsters>) input.readObject();
 			input.close();
 		} catch (Exception e) {
 			System.out.println(e);
-			Main.instancia().MSG("N�o foi possivel ler o arquivo");
+			Messages.MSG("Erro ao iniciar!");
 		}
 	}
 
