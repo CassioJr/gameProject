@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.aposController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AfterController">
    <children>
       <Text layoutX="422.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Você Ganhou" textAlignment="CENTER" wrappingWidth="313.13671875">
          <font>
@@ -23,16 +23,16 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Label fx:id="experienciaGanha" layoutX="396.0" layoutY="414.0" prefHeight="35.0" prefWidth="124.0">
+      <Label fx:id="expEarn" layoutX="396.0" layoutY="414.0" prefHeight="35.0" prefWidth="124.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="ouroGanho" layoutX="674.0" layoutY="414.0" prefHeight="35.0" prefWidth="124.0">
+      <Label fx:id="coinEarn" layoutX="674.0" layoutY="414.0" prefHeight="35.0" prefWidth="124.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutY="2.0" mnemonicParsing="false" onAction="#chamaTela" opacity="0.17" prefHeight="700.0" prefWidth="1200.0" />
+      <Button layoutY="2.0" mnemonicParsing="false" onAction="#changeScreen" opacity="0.17" prefHeight="700.0" prefWidth="1200.0" />
    </children>
 </AnchorPane>

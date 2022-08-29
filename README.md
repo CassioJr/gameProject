@@ -1,18 +1,12 @@
 <h2>GameProject</h2>
- 
-### Titulo Jogo: Não tem ainda
 
-#### Linguagem e frameworks que será utilizado: 
+Projeto de um jogo realizado com javafx, com o intuito de treinamento na ferramenta.
+
+## Ferramentas utilizadas:
+
 - Java;
+- JavaFX;
+- Biblioteca Gson (Incluida na pasta lib);
+- Scene Builder
 
-- JavaFX.
-
-#### Ferramentas para apoio do desenvolvimento: 
-
-- Figma;
-
-- Scene Builder.
-
-#### Prototipo do figma:
-> https://www.figma.com/file/JDF9vo22H944UIFbNlOXu9/GameProject?node-id=2%3A80
-
+Obs: Para rodar o projeto você deve adicionar as libs do javafx dentro do build path e configurar a vm arguments, caso contrário irá ocorrer um erro ao iniciar.

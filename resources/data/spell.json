@@ -1,0 +1,112 @@
+{
+    "spells": [
+        {
+            "id": 1,
+            "name": "Arco lunar",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        },
+        {
+            "id": 2,
+            "name": "Chuva de flechas",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        },
+        {
+            "id": 3,
+            "name": "Disparo certeiro",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        },
+        {
+            "id": 4,
+            "name": "Curar",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Cura"
+        },
+        {
+            "id": 5,
+            "name": "Bola de fogo",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        },
+        {
+            "id": 6,
+            "name": "Arco lunar",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        },
+        {
+            "id": 7,
+            "name": "Corte rápido",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        },
+        {
+            "id": 8,
+            "name": "Lançar arma",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        },
+        {
+            "id": 9,
+            "name": "Amaldiçoar",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        },
+        {
+            "id": 10,
+            "name": "Disparo de flecha",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        },
+        {
+            "id": 11,
+            "name": "Roubo de vida",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        },
+        {
+            "id": 12,
+            "name": "Lançar arma",
+            "cost": 40,
+            "baseDamage": 100,
+            "baseHeal": 0,
+            "duration": 2,
+            "type": "Dano"
+        }
+    ]
+}

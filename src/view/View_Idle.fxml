@@ -8,11 +8,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EsperaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IdleController">
    <children>
       <ImageView fitHeight="708.0" fitWidth="1206.0" layoutX="-1.0" layoutY="-7.0">
          <image>
-            <Image url="file:./resources/Backgrounds/Background_TelaEspera.png" />
+            <Image url="file:./resources/img/backgrounds/background_ViewIdle.png" />
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="21.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" wrappingWidth="66.13671875">
@@ -30,22 +30,17 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="862.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Experiencia:" wrappingWidth="131.13671875">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Label fx:id="nomePlayer" layoutX="94.0" layoutY="18.0" prefHeight="20.0" prefWidth="161.0" textFill="WHITE">
+      <Label fx:id="namePlayer" layoutX="94.0" layoutY="18.0" prefHeight="20.0" prefWidth="161.0" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="nivelPlayer" layoutX="365.0" layoutY="18.0" prefHeight="20.0" prefWidth="161.0" textFill="WHITE">
+      <Label fx:id="levelPlayer" layoutX="365.0" layoutY="18.0" prefHeight="20.0" prefWidth="161.0" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="ouroPlayer" layoutX="635.0" layoutY="18.0" prefHeight="20.0" prefWidth="161.0" textFill="WHITE">
+      <Label fx:id="goldPlayer" layoutX="635.0" layoutY="18.0" prefHeight="20.0" prefWidth="161.0" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -62,21 +57,21 @@
       </Button>
       <ImageView fitHeight="559.0" fitWidth="745.0" layoutX="214.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:./resources/Backgrounds/MapaMundo.jpg" />
+            <Image url="file:./resources/img/backgrounds/worldMap.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="368.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnreino" opacity="0.13" prefHeight="59.0" prefWidth="97.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
+      <Button layoutX="368.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnReign" opacity="0.13" prefHeight="59.0" prefWidth="97.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
       <Button layoutX="928.0" layoutY="633.0" mnemonicParsing="false" onAction="#btnExplorar" prefHeight="59.0" prefWidth="235.0" text="Explorar">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="398.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnDragon" opacity="0.13" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
-      <AnchorPane fx:id="telaSobreHistoria" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" visible="false">
+      <Button layoutX="406.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnDragon" opacity="0.13" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
+      <AnchorPane fx:id="screenAboutHistory" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" visible="false">
          <children>
             <ImageView fitHeight="700.0" fitWidth="1214.0" layoutX="-8.0">
                <image>
-                  <Image url="file:./resources/Backgrounds/Background_SobreHistoria.png" />
+                  <Image url="file:./resources/img/backgrounds/background_AboutHistory.png" />
                </image>
             </ImageView>
             <Button layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" onAction="#btnSobreHistoria" opacity="0.04" prefHeight="707.0" prefWidth="1206.0">
@@ -91,5 +86,12 @@
             </Text>
          </children>
       </AnchorPane>
+      <Button layoutX="540.0" layoutY="558.0" mnemonicParsing="false" onAction="#btnDragonBoss" opacity="0.13" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
+      <Button layoutX="465.0" layoutY="292.0" mnemonicParsing="false" onAction="#btnBattleAcampament" opacity="0.13" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
+      <Button layoutX="587.0" layoutY="389.0" mnemonicParsing="false" onAction="#btnSeaCreature" opacity="0.13" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
+      <Button layoutX="746.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnWinterVillage" opacity="0.13" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
+      <Button layoutX="290.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnOrcVillage" opacity="0.13" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
+      <Button layoutX="786.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnCatedral" opacity="0.13" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
+      <Button layoutX="686.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnFort" opacity="0.13" prefHeight="37.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-cursor: hand;" />
    </children>
 </AnchorPane>

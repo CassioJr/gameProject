@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import java.util.Optional;
 
@@ -6,8 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
 public class Messages {
-	/*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
-	 * você deseja apresentar na mensagem que sera apresentada ao usuario*/
+	
 	public static void MSG(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.WARNING);
 		alerta.setTitle("Atenção");
@@ -16,8 +15,6 @@ public class Messages {
 		alerta.showAndWait();
 	}
 
-	/*Metodo que apresenta uma msg de escolha perguntando sim ou não ao usuario quando chamada, 
-	 * ela recebe como parametro o conteudo que você deseja apresentar na mensagem que sera apresentada ao usuario*/
 	public static boolean MSGEscolha(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
 		alerta.setTitle("Atenção");

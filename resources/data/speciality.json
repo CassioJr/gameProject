@@ -1,0 +1,109 @@
+{
+    "classes": [
+        {
+            "name": "Guerreiro",
+            "life": 100,
+            "mana": 0,
+            "image": "./resources/img/classes/warrior.png",
+            "baseDamage": 30,
+            "baseDamageType": "Fisico",
+            "baseArmor": 20,
+            "skills": [
+                {
+                    "id": 7,
+                    "name": "Corte rápido",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                },
+                {
+                    "id": 8,
+                    "name": "Lançar arma",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                }
+            ]
+        },
+        {
+            "name": "Mago",
+            "life": 90,
+            "mana": 100,
+            "image": "./resources/img/classes/mage.png",
+            "baseDamage": 10,
+            "baseDamageType": "Magico",
+            "baseArmor": 12,
+            "skills": [
+                {
+                    "id": 5,
+                    "name": "Bola de fogo",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                },
+                {
+                    "id": 4,
+                    "name": "Curar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Cura"
+                },
+                {
+                "id": 6,
+                "name": "Arco lunar",
+                "cost": 40,
+                "baseDamage": 100,
+                "baseHeal": 0,
+                "duration": 2,
+                "type": "Dano"
+                }
+            ]
+        },
+        {
+            "name": "Arqueiro",
+            "life": 100,
+            "mana": 80,
+            "image": "./resources/img/classes/archer.png",
+            "baseDamage": 20,
+            "baseDamageType": "Fisico",
+            "baseArmor": 17,
+            "skills": [
+                {
+                    "id": 1,
+                    "name": "Arco lunar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                },
+                {
+                    "id": 2,
+                    "name": "Chuva de flechas",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                },
+                {
+                    "id": 3,
+                    "name": "Disparo certeiro",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                }
+            ]
+        }
+    ]
+}

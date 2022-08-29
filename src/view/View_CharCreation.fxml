@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CharCreationController">
+   <children>
+      <ImageView fitHeight="612.0" fitWidth="1208.0" layoutX="-7.0" layoutY="-8.0">
+         <image>
+            <Image url="file:./resources/img/backgrounds/background_CharCreation.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="classImage" fitHeight="551.0" fitWidth="292.0" layoutX="855.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="fieldName" layoutX="463.0" layoutY="113.0" prefHeight="40.0" prefWidth="240.0" />
+      <Text layoutX="509.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do personagem:" />
+      <Button layoutX="325.0" layoutY="412.0" mnemonicParsing="false" onAction="#iniciar" prefHeight="88.0" prefWidth="491.0" style="-fx-background-radius: 15;" text="Iniciar">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <Button layoutX="14.0" layoutY="558.0" mnemonicParsing="false" onAction="#voltar" prefHeight="29.0" prefWidth="83.0" text="Voltar" />
+      <ChoiceBox fx:id="classChoose" layoutX="460.0" layoutY="223.0" onAction="#classInfo" prefHeight="47.0" prefWidth="240.0" />
+   </children>
+</AnchorPane>

@@ -2,118 +2,100 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
-
-import application.Main;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Player;
-import utils.FileManagement;
-import utils.Messages;
-import utils.MetodosAuxiliares;
+import model.entity.Player;
+import model.entity.Speciality;
+import model.validation.FileValidation;
+import util.FileManagement;
+import util.Messages;
+import util.SpecialityArray;
 
-public class CharCreationController {
+public class CharCreationController implements Initializable {
 	@FXML
-	private TextField campoNome;
-
-	@FXML
-	private ImageView classeImagem;
-
-	@FXML
-	private MenuButton escolherClasse;
+	private TextField fieldName;
 
 	@FXML
-	private MenuItem mago, arqueiro, guerreiro;
-	private Stage primaryStage;
+	private ImageView classImage;
 
-	/*Metodo que coloca a imagem da classe referente ao mago na tela de cria��o de personagens
-	 * e coloca o texto do nome da classe no botao de escolha*/
-	public void mago() {
-		escolherClasse.setText(mago.getText());
-		File file = new File("./resources/Imagens_Classes/Mago.png");
+	@FXML
+	private ChoiceBox<String> classChoose;
+
+	public void classInfo() {
+		SpecialityArray sa = SpecialityArray.getInstance();
+		File file = new File(sa.specialityLoad(classChoose.getValue().toString()).getImage());
 		Image image = new Image(file.toURI().toString());
-		classeImagem.setImage(image);
+		classImage.setImage(image);
 	}
 
-	/*Metodo que coloca a imagem da classe referente ao arqueiro na tela de cria��o de personagens
-	 * e coloca o texto do nome da classe no botao de escolha*/
-	public void arqueiro() {
-		escolherClasse.setText(arqueiro.getText());
-		File file = new File("./resources/Imagens_Classes/Arqueiro.png");
-		Image image = new Image(file.toURI().toString());
-		classeImagem.setImage(image);
-	}
-
-	/*Metodo que coloca a imagem da classe referente ao guerreiro na tela de cria��o de personagens
-	 * e coloca o texto do nome da classe no botao de escolha*/
-	public void guerreiro() {
-		escolherClasse.setText(guerreiro.getText());
-		File file = new File("./resources/Imagens_Classes/Guerreiro.png");
-		Image image = new Image(file.toURI().toString());
-		classeImagem.setImage(image);
-	}
-	
-	/*Metodo que valida os campos para ver se o campo de nick ou escolha de classe est�o vazios
-	 * na hora de realizar a cria��o de personagem*/
 	public boolean validacaoCampos() {
-		MetodosAuxiliares ma = new MetodosAuxiliares();
-		if (campoNome.getText().isEmpty()) {
-			Messages.MSG("Voc� deve preencher o campo de nick ");
+		if (fieldName.getText().isEmpty()) {
+			Messages.MSG("Você deve preencher o campo de nome ");
 			return true;
-		} else if (escolherClasse.getText().isEmpty()) {
-			Messages.MSG("Voc� deve escolher uma classe");
+		} else if (classChoose.getValue() == null) {
+			Messages.MSG("Você deve escolher uma classe");
 			return true;
 		}
 		return false;
 	}
 
-	/*Metodo que inicia o game pegando as informa��es de classe e nick que foi informado pelo player
-	 * E criando assim um arquivo de save para o jogo e chamando a tela de espera*/
-	public void iniciar(ActionEvent event) throws IOException {
-		if (validacaoCampos() == false) {
-			//Aqui se verifica se j� existe um save em andamento e � feito a pergunta se deseja sobreescrever por cima do save atual
-			if (FileManagement.existSaveFile() == true) {
-				if (Messages.MSGEscolha("J� existe um save, deseja criar um novo?") == true) {
-					//Aqui � instanciado o objeto do player em que � inciado com 100 de vida e de mana, e com nivel 1 e 0 de ouro
-					Player jogador = new Player(campoNome.getText(), escolherClasse.getText());
-					Main.operacoes().addChar(jogador);
-					if(Main.operacoes().salvarArquivo() == true) {
-					AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));
-					Scene Espera = new Scene(fxmlEspera);
-					primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-					primaryStage.setScene(Espera);
-					}
-				}
-			}else {
-				if(Main.operacoes().salvarArquivo() == true) {
-					Main.operacoes().salvarArquivo();
-					Player jogador = new Player(campoNome.getText(), escolherClasse.getText());
-					Main.operacoes().addChar(jogador);
-					AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaEspera.fxml"));
-					Scene Espera = new Scene(fxmlEspera);
-					primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-					primaryStage.setScene(Espera);
-				}
-			}
+	public void loadClassesChooseButton() {
+		for (Speciality usr : FileManagement.readSpecialityFile().getClasses()) {
+			classChoose.getItems().addAll(usr.getName());
 		}
 	}
 
-	/*Metodo que realiza a fun��o de voltar para a tela de menu*/
+	public void iniciar(ActionEvent event) throws IOException {
+		SpecialityArray sp = SpecialityArray.getInstance();
+		try {
+			if (validacaoCampos() == false) {
+				if (FileValidation.existSaveFile() == true) {
+					if (Messages.MSGEscolha("Já existe um save, deseja criar um novo?") == true) {
+						Player jogador = new Player(fieldName.getText(), sp.specialityLoad(classChoose.getValue()));
+						FileManagement.savePlayerData(jogador);
+						changeScene(event, "View_Idle");
+					}
+				} else {
+					Player jogador = new Player(fieldName.getText(), sp.specialityLoad(classChoose.getValue()));
+					FileManagement.savePlayerData(jogador);
+					changeScene(event, "View_Idle");
+				}
+			}
+		} catch (Exception e) {
+			Messages.MSG("Erro ao tentar criar um novo jogo!");
+		}
+	}
+
 	public void voltar(ActionEvent event) throws IOException {
-		// Main.instancia().MusicBackground("main_title");
-		AnchorPane fxmlmenu = (AnchorPane) FXMLLoader.load(getClass().getResource("/telas/TelaMenu.fxml"));
-		Scene main = new Scene(fxmlmenu);
-		primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setScene(main);
+		changeScene(event, "View_Menu");
+	}
+
+	public void changeScene(ActionEvent event, String tela) {
+		try {
+			Parent fxml = FXMLLoader.load(getClass().getResource("/view/" + tela + ".fxml"));
+			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			primaryStage.setScene(new Scene(fxml));
+			primaryStage.show();
+		} catch (IOException e) {
+			System.err.println("Erro ao carregar a tela!");
+		}
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		loadClassesChooseButton();
 	}
 
 }

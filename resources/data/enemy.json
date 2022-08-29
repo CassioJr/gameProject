@@ -1,0 +1,273 @@
+{
+    "enemys": [
+        {
+            "id": 1,
+            "name": "Dragão",
+            "image": "./resources/img/enemy/dragon.png",
+            "life": 200,
+            "mana": 100,
+            "type": "Commun",
+            "baseDamage": 20,
+            "reward": 100,
+            "xpReward": 200,
+            "baseDamageType": "Fisico",
+            "baseArmor": 30,
+            "skills": [
+                {
+                    "id": 1,
+                    "name": "Arco lunar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                },
+                {
+                    "id": 9,
+                    "name": "Amaldiçoar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Lich",
+            "image": "./resources/img/enemy/lich.png",
+            "life": 500,
+            "mana": 100,
+            "type": "Commun",
+            "baseDamage": 20,
+            "reward": 100,
+            "xpReward": 200,
+            "baseDamageType": "Mágico",
+            "baseArmor": 30,
+            "skills": [
+                {
+                    "id": 11,
+                    "name": "Roubo de vida",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                },
+                {
+                    "id": 9,
+                    "name": "Amaldiçoar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Goblin",
+            "image": "./resources/img/enemy/goblin.png",
+            "life": 500,
+            "mana": 100,
+            "type": "Commun",
+            "baseDamage": 20,
+            "reward": 100,
+            "xpReward": 200,
+            "baseDamageType": "Mágico",
+            "baseArmor": 30,
+            "skills": [
+                {
+                    "id": 1,
+                    "name": "Arco lunar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Skeleton",
+            "image": "./resources/img/enemy/skeleton.png",
+            "life": 500,
+            "mana": 100,
+            "type": "Commun",
+            "baseDamage": 20,
+            "reward": 100,
+            "xpReward": 200,
+            "baseDamageType": "Mágico",
+            "baseArmor": 30,
+            "skills": [
+                {
+                    "id": 1,
+                    "name": "Arco lunar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Death Knight",
+            "image": "./resources/img/enemy/lich.png",
+            "life": 500,
+            "mana": 100,
+            "type": "Boss",
+            "baseDamage": 20,
+            "reward": 100,
+            "xpReward": 200,
+            "baseDamageType": "Mágico",
+            "baseArmor": 30,
+            "skills": [
+                {
+                    "id": 11,
+                    "name": "Roubo de vida",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Slime",
+            "image": "./resources/img/enemy/slime.gif",
+            "life": 50,
+            "mana": 100,
+            "type": "Commun",
+            "baseDamage": 5,
+            "reward": 100,
+            "xpReward": 800,
+            "baseDamageType": "Mágico",
+            "baseArmor": 30,
+            "skills": [
+                {}
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Orc",
+            "image": "./resources/img/enemy/slime.gif",
+            "life": 50,
+            "mana": 100,
+            "type": "Commun",
+            "baseDamage": 5,
+            "reward": 100,
+            "xpReward": 800,
+            "baseDamageType": "Fisico",
+            "baseArmor": 30,
+            "skills": [
+                {}
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Dragão das tempestades",
+            "image": "./resources/img/enemy/dragon.png",
+            "life": 500,
+            "mana": 100,
+            "type": "Boss",
+            "baseDamage": 20,
+            "reward": 100,
+            "xpReward": 200,
+            "baseDamageType": "Fisico",
+            "baseArmor": 30,
+            "skills": [
+                {
+                    "id": 1,
+                    "name": "Arco lunar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                },
+                {
+                    "id": 9,
+                    "name": "Amaldiçoar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Serpente Marinha",
+            "image": "./resources/img/enemy/dragon.png",
+            "life": 500,
+            "mana": 100,
+            "type": "Boss",
+            "baseDamage": 20,
+            "reward": 100,
+            "xpReward": 200,
+            "baseDamageType": "Fisico",
+            "baseArmor": 30,
+            "skills": [
+                {
+                    "id": 1,
+                    "name": "Arco lunar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                },
+                {
+                    "id": 9,
+                    "name": "Amaldiçoar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Lich Chefe",
+            "image": "./resources/img/enemy/dragon.png",
+            "life": 500,
+            "mana": 100,
+            "type": "Boss",
+            "baseDamage": 20,
+            "reward": 100,
+            "xpReward": 200,
+            "baseDamageType": "Fisico",
+            "baseArmor": 30,
+            "skills": [
+                {
+                    "id": 1,
+                    "name": "Arco lunar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                },
+                {
+                    "id": 9,
+                    "name": "Amaldiçoar",
+                    "cost": 40,
+                    "baseDamage": 100,
+                    "baseHeal": 0,
+                    "duration": 2,
+                    "type": "Dano"
+                }
+            ]
+        }
+    ]
+}
