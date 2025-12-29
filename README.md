@@ -1,6 +1,6 @@
 # GameProject
 
-A game project developed with **JavaFX** for the purpose of practicing and mastering the framework's tools and features.
+A game project developed with **JavaFX** for the purpose of practicing framework's tools and features.
 
 ## 🛠 Tools & Technologies
 
